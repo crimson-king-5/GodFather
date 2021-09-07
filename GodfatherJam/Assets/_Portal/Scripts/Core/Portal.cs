@@ -47,7 +47,7 @@ public class Portal : MonoBehaviour {
             if (portalSide != portalSideOld) {
                 var positionOld = travellerT.position;
                 var rotOld = travellerT.rotation;
-                traveller.Teleport (transform, linkedPortal.transform, m.GetColumn (3), m.rotation);
+                traveller.Teleport (transform, linkedPortal.transform, m.GetColumn (3), m.rotation, linkedPortal);
                 traveller.graphicsClone.transform.SetPositionAndRotation (positionOld, rotOld);
                 // Can't rely on OnTriggerEnter/Exit to be called next frame since it depends on when FixedUpdate runs
                 linkedPortal.OnTravellerEnterPortal (traveller);

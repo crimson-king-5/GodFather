@@ -123,7 +123,7 @@ public class FPSController : PortalTraveller {
 
     }
 
-    public override void Teleport(Transform fromPortal, Transform toPortal, Vector3 pos, Quaternion rot)
+    public override void Teleport(Transform fromPortal, Transform toPortal, Vector3 pos, Quaternion rot, Portal portal)
     {
         transform.position = pos;
         Vector3 eulerRot = rot.eulerAngles;

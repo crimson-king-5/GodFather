@@ -32,7 +32,7 @@ public class FirstPersonMovement : PortalTraveller
     {
         Cursor.lockState = CursorLockMode.Locked;
 
-        // Get the rigidbody on this.
+        //// Get the rigidbody on this.
         rigidbody = GetComponent<Rigidbody>();
 
         yaw = transform.eulerAngles.y;
@@ -54,23 +54,29 @@ public class FirstPersonMovement : PortalTraveller
         }
 
         // Get targetVelocity from input.
-        Vector2 targetVelocity =new Vector2( Input.GetAxis("Horizontal") * targetMovingSpeed, Input.GetAxis("Vertical") * targetMovingSpeed);
+        Vector2 targetVelocity = new Vector2(Input.GetAxis("Horizontal") * targetMovingSpeed, Input.GetAxis("Vertical") * targetMovingSpeed);
 
         // Apply movement.
         rigidbody.velocity = (transform.rotation * new Vector3(targetVelocity.x, rigidbody.velocity.y, targetVelocity.y));
-        //Debug.Log("protal velo : " + portalVelocity);
-        if(portalVelocity.y > maxPortalVelocity.y)
-            rigidbody.velocity += maxPortalVelocity;
-        else
-            rigidbody.velocity += portalVelocity;
 
-        //rigidbody.angularVelocity += portalAngularVelocity;
+        //if (portalVelocity == Vector3.zero)
+        //{
+            
+        //    //Debug.Log("protal velo : " + portalVelocity);
 
-        if (portalVelocity != Vector3.zero)
-        {
-            portalAngularVelocity = Vector3.zero;
-            portalVelocity = Vector3.zero;
-        }
+        //    //if (portalVelocity.y > maxPortalVelocity.y)
+        //    //    rigidbody.velocity += maxPortalVelocity;
+        //    //else
+        //    //    rigidbody.velocity += portalVelocity;
+        //}
+
+        ////rigidbody.angularVelocity += portalAngularVelocity;
+
+        //if (portalVelocity != Vector3.zero)
+        //{
+        //    portalAngularVelocity = Vector3.zero;
+        //    portalVelocity = Vector3.zero;
+        //}
 
         _Rot();
     }
@@ -103,23 +109,29 @@ public class FirstPersonMovement : PortalTraveller
         cam.transform.localEulerAngles = Vector3.right * smoothPitch;
     }
 
-    public override void Teleport(Transform fromPortal, Transform toPortal, Vector3 pos, Quaternion rot)
+    public override void Teleport(Transform fromPortal, Transform toPortal, Vector3 pos, Quaternion rot, Portal portal)
     {
         Debug.Log("in portal true");
         inPortal = true;
-        base.Teleport(fromPortal, toPortal, pos, rot);
-        //GetComponent<Rigidbody>().velocity = toPortal.TransformVector(fromPortal.InverseTransformVector(GetComponent<Rigidbody>().velocity));
-        //GetComponent<Rigidbody>().angularVelocity = toPortal.TransformVector(fromPortal.InverseTransformVector(GetComponent<Rigidbody>().angularVelocity));
+        base.Teleport(fromPortal, toPortal, pos, rot, portal);
+        GetComponent<Rigidbody>().velocity = toPortal.TransformVector(fromPortal.InverseTransformVector(GetComponent<Rigidbody>().velocity));
+        GetComponent<Rigidbody>().angularVelocity = toPortal.TransformVector(fromPortal.InverseTransformVector(GetComponent<Rigidbody>().angularVelocity));
 
         portalVelocity = toPortal.TransformVector(fromPortal.InverseTransformVector(GetComponent<Rigidbody>().velocity));
         portalAngularVelocity = toPortal.TransformVector(fromPortal.InverseTransformVector(GetComponent<Rigidbody>().angularVelocity));
 
-        StartCoroutine(InPortalToFalse());
-    }
-
-    IEnumerator InPortalToFalse()
-    {
-        yield return new WaitForSeconds(.5f);
-        inPortal = false;
+        Vector3 eulerRot = rot.eulerAngles;
+        float delta = Mathf.DeltaAngle(smoothYaw, eulerRot.y);
+        yaw += delta;
+        //RAJOUTER AU DELTA LA ROT DU PORTAIL EN Y
+        smoothYaw += delta;
+        //smoothYaw += portal.linkedPortal.transform.eulerAngles.y;
+        Debug.Log("portal : " + portal.transform.eulerAngles.x + " name :" + portal.linkedPortal.name);
+        var angles = Vector3.zero;
+        angles.x = portal.transform.eulerAngles.x;
+        Debug.Log("X : " + angles.x);
+        playerCam.transform.eulerAngles = angles;
+        transform.eulerAngles = Vector3.up * smoothYaw;
+        Physics.SyncTransforms();
     }
 }

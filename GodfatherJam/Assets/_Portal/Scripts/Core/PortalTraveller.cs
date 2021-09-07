@@ -10,9 +10,35 @@ public class PortalTraveller : MonoBehaviour {
     public Material[] originalMaterials { get; set; }
     public Material[] cloneMaterials { get; set; }
 
-    public virtual void Teleport (Transform fromPortal, Transform toPortal, Vector3 pos, Quaternion rot) {
+    public Camera playerCam;
+
+    private Vector3 playerVector;
+    private Vector3 camVector;
+
+    public virtual void Teleport (Transform fromPortal, Transform toPortal, Vector3 pos, Quaternion rot, Portal portal) {
+
+        //if(playerCam != null)
+        //{
+        //    transform.position = pos;
+        //    playerVector = rot.eulerAngles;
+        //    playerVector.x = 0;
+        //    //Z & Y FOR PLAYER
+        //    transform.eulerAngles = playerVector;
+
+        //    //X FOR CAM
+        //    camVector = rot.eulerAngles;
+        //    camVector.y = 0;
+        //    camVector.z = 0;
+        //    playerCam.transform.eulerAngles = -camVector;
+        //}
+        //else
+        //{
+
+        //}
+
         transform.position = pos;
         transform.rotation = rot;
+
     }
 
     // Called when first touches portal
