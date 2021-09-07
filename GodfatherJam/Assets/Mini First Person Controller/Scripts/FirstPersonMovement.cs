@@ -20,8 +20,13 @@ public class FirstPersonMovement : PortalTraveller
     public float pitch;
     float smoothYaw;
     float smoothPitch;
-    Vector3 velocity;
     public Camera cam;
+
+    private Vector3 portalVelocity;
+    private Vector3 portalAngularVelocity;
+    public Vector3 maxPortalVelocity;
+
+    public bool inPortal;
 
     void Awake()
     {
@@ -52,7 +57,20 @@ public class FirstPersonMovement : PortalTraveller
         Vector2 targetVelocity =new Vector2( Input.GetAxis("Horizontal") * targetMovingSpeed, Input.GetAxis("Vertical") * targetMovingSpeed);
 
         // Apply movement.
-        rigidbody.velocity = transform.rotation * new Vector3(targetVelocity.x, rigidbody.velocity.y, targetVelocity.y);
+        rigidbody.velocity = (transform.rotation * new Vector3(targetVelocity.x, rigidbody.velocity.y, targetVelocity.y));
+        //Debug.Log("protal velo : " + portalVelocity);
+        if(portalVelocity.y > maxPortalVelocity.y)
+            rigidbody.velocity += maxPortalVelocity;
+        else
+            rigidbody.velocity += portalVelocity;
+
+        //rigidbody.angularVelocity += portalAngularVelocity;
+
+        if (portalVelocity != Vector3.zero)
+        {
+            portalAngularVelocity = Vector3.zero;
+            portalVelocity = Vector3.zero;
+        }
 
         _Rot();
     }
@@ -87,25 +105,21 @@ public class FirstPersonMovement : PortalTraveller
 
     public override void Teleport(Transform fromPortal, Transform toPortal, Vector3 pos, Quaternion rot)
     {
-        transform.position = pos;
-        Vector3 eulerRot = rot.eulerAngles;
-        float delta = Mathf.DeltaAngle(smoothYaw, eulerRot.y);
-        yaw += delta;
-        smoothYaw += delta;
-        transform.eulerAngles = Vector3.up * smoothYaw;
-        velocity = toPortal.TransformVector(fromPortal.InverseTransformVector(velocity));
-        Physics.SyncTransforms();
-        //StartCoroutine(_AddForce(force));
+        Debug.Log("in portal true");
+        inPortal = true;
+        base.Teleport(fromPortal, toPortal, pos, rot);
+        //GetComponent<Rigidbody>().velocity = toPortal.TransformVector(fromPortal.InverseTransformVector(GetComponent<Rigidbody>().velocity));
+        //GetComponent<Rigidbody>().angularVelocity = toPortal.TransformVector(fromPortal.InverseTransformVector(GetComponent<Rigidbody>().angularVelocity));
+
+        portalVelocity = toPortal.TransformVector(fromPortal.InverseTransformVector(GetComponent<Rigidbody>().velocity));
+        portalAngularVelocity = toPortal.TransformVector(fromPortal.InverseTransformVector(GetComponent<Rigidbody>().angularVelocity));
+
+        StartCoroutine(InPortalToFalse());
     }
 
-    IEnumerator _AddForce(float force)
+    IEnumerator InPortalToFalse()
     {
-        yield return new WaitForSeconds(1);
-
-        rigidbody.AddForce(Vector3.forward * force);
-
-        Debug.Log("Added force to the rb");
-
-        //Debug.Break();
+        yield return new WaitForSeconds(.5f);
+        inPortal = false;
     }
 }

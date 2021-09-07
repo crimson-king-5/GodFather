@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FPSControllerA : PortalTraveller
-{
+public class FPSController : PortalTraveller {
 
     public float walkSpeed = 3;
     public float runSpeed = 6;
@@ -13,7 +12,7 @@ public class FPSControllerA : PortalTraveller
 
     public bool lockCursor;
     public float mouseSensitivity = 10;
-    public Vector2 pitchMinMax = new Vector2(-40, 85);
+    public Vector2 pitchMinMax = new Vector2 (-40, 85);
     public float rotationSmoothTime = 0.1f;
 
     CharacterController controller;
