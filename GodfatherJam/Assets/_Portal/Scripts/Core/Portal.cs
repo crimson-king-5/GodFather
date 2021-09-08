@@ -36,6 +36,7 @@ public class Portal : MonoBehaviour {
     void HandleTravellers () {
 
         for (int i = 0; i < trackedTravellers.Count; i++) {
+            //Debug.Log("boucle");
             PortalTraveller traveller = trackedTravellers[i];
             Transform travellerT = traveller.transform;
             var m = linkedPortal.transform.localToWorldMatrix * transform.worldToLocalMatrix * travellerT.localToWorldMatrix;
@@ -282,6 +283,7 @@ public class Portal : MonoBehaviour {
     void OnTriggerEnter (Collider other) {
         var traveller = other.GetComponent<PortalTraveller> ();
         if (traveller) {
+            //Debug.Log("Trigger enter");
             OnTravellerEnterPortal (traveller);
         }
     }
