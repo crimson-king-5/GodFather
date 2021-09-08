@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections;
 using DG.Tweening;
+using DecalSystem;
 
 public class FirstPersonMovement : PortalTraveller
 {
@@ -31,6 +32,48 @@ public class FirstPersonMovement : PortalTraveller
 
     public bool inPortal;
     private float myAngle;
+
+    [Header("Spray")]
+    public float maxDistSpray;
+    public Vector3 sprayScale = Vector3.one;
+    public int maxTag;
+    public KeyCode tagInput;
+    private RaycastHit sprayHit;
+    public LayerMask tagableLayer;
+    public GameObject arrowDecal;
+
+    Vector3 RaycastOrigin => transform.position - Vector3.forward * maxDistSpray;
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(tagInput))
+            _Spray();
+
+        Debug.DrawRay(cam.transform.position, cam.transform.forward * 10, Color.blue);
+
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Debug.DrawLine(cam.transform.position, cam.transform.forward * 10, Color.blue);
+    }
+
+    void _Spray()
+    {
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward * 10, out sprayHit, maxDistSpray, tagableLayer))
+        {
+            var go = Instantiate(arrowDecal, sprayHit.point, Quaternion.identity);
+            go.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+            StartCoroutine(WaitingToBuildDecal(go));
+        }
+    }
+
+    IEnumerator WaitingToBuildDecal(GameObject go)
+    {
+        yield return new WaitForSeconds(.1f);
+
+        go.GetComponent<Decal>().BuildAndSetDirty();
+    }
 
     void Awake()
     {
