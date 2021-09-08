@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2385110393540966406
 Transform:
   m_ObjectHideFlags: 0
@@ -38,7 +38,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2385110393540966401}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 084c01ab381b9da4082c1f84cf70751b, type: 3}
   m_Name: 
@@ -96,7 +96,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &2385110394510769966
 CapsuleCollider:
@@ -126,15 +126,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   graphicsObject: {fileID: 5438251231321996412}
   playerCam: {fileID: 3771581771602860860}
+  actualSpeed: 0
   speed: 5
+  accelerationTime: 0
   canRun: 1
   runSpeed: 9
   runningKey: 304
   yaw: 0
   pitch: 0
+  smoothPitch: 0
   cam: {fileID: 3771581771602860860}
   maxPortalVelocity: {x: 0, y: 0, z: 0}
   inPortal: 0
+  maxDistSpray: 0
+  sprayScale: {x: 1, y: 1, z: 1}
+  maxTag: 0
+  tagInput: 0
+  tagableLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  arrowDecal: {fileID: 0}
   mouseSensitivity: 10
   pitchMinMax: {x: -90, y: 90}
   rotationSmoothTime: 0.1
@@ -145,7 +156,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3771581771094438034}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f977f53412d81140ab13b3fca57cca2, type: 3}
   m_Name: 

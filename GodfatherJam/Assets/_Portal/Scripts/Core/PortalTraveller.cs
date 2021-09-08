@@ -43,14 +43,17 @@ public class PortalTraveller : MonoBehaviour {
 
     // Called when first touches portal
     public virtual void EnterPortalThreshold () {
-        if (graphicsClone == null) {
-            graphicsClone = Instantiate (graphicsObject);
+        if (graphicsClone == null)
+        {
+            graphicsClone = Instantiate(graphicsObject);
             graphicsClone.transform.parent = graphicsObject.transform.parent;
             graphicsClone.transform.localScale = graphicsObject.transform.localScale;
-            originalMaterials = GetMaterials (graphicsObject);
-            cloneMaterials = GetMaterials (graphicsClone);
-        } else {
-            graphicsClone.SetActive (true);
+            originalMaterials = GetMaterials(graphicsObject);
+            cloneMaterials = GetMaterials(graphicsClone);
+        }
+        else
+        {
+            graphicsClone.SetActive(true);
         }
     }
 
@@ -64,11 +67,15 @@ public class PortalTraveller : MonoBehaviour {
     }
 
     public void SetSliceOffsetDst (float dst, bool clone) {
-        for (int i = 0; i < originalMaterials.Length; i++) {
-            if (clone) {
-                cloneMaterials[i].SetFloat ("sliceOffsetDst", dst);
-            } else {
-                originalMaterials[i].SetFloat ("sliceOffsetDst", dst);
+        for (int i = 0; i < originalMaterials.Length; i++)
+        {
+            if (clone)
+            {
+                cloneMaterials[i].SetFloat("sliceOffsetDst", dst);
+            }
+            else
+            {
+                originalMaterials[i].SetFloat("sliceOffsetDst", dst);
             }
 
         }
@@ -78,7 +85,7 @@ public class PortalTraveller : MonoBehaviour {
         var renderers = g.GetComponentsInChildren<MeshRenderer> ();
         var matList = new List<Material> ();
         foreach (var renderer in renderers) {
-            foreach (var mat in renderer.materials) {
+            foreach (var mat in renderer.sharedMaterials) {
                 matList.Add (mat);
             }
         }
