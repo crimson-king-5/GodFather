@@ -205,6 +205,7 @@ public class FirstPersonMovement : PortalTraveller
 
         Debug.Log("Portal : " + portal.name);
 
-        PortalEventSystem.instance.PortalEvent(portal.linkedPortal);
+        if(PortalEventSystem.instance != null)
+            PortalEventSystem.instance.PortalEvent(portal.linkedPortal);
     }
 }
