@@ -467,6 +467,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desert Portal
       objectReference: {fileID: 0}
+    - target: {fileID: 3743597651704331074, guid: ce71ddc64223549ed8fc19f77f5948b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3743597651704331078, guid: ce71ddc64223549ed8fc19f77f5948b2,
         type: 3}
       propertyPath: linkedPortal
@@ -522,6 +527,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 502171373}
     m_Modifications:
+    - target: {fileID: 3743597651704331072, guid: ce71ddc64223549ed8fc19f77f5948b2,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3743597651704331073, guid: ce71ddc64223549ed8fc19f77f5948b2,
         type: 3}
       propertyPath: m_RootOrder
@@ -581,6 +591,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Desert Portal (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743597651704331074, guid: ce71ddc64223549ed8fc19f77f5948b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3743597651704331078, guid: ce71ddc64223549ed8fc19f77f5948b2,
         type: 3}
@@ -784,7 +799,7 @@ Transform:
   m_GameObject: {fileID: 698360930}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 5.58}
-  m_LocalScale: {x: 10, y: 0.1, z: 20}
+  m_LocalScale: {x: 13.642, y: 0.1, z: 20}
   m_Children: []
   m_Father: {fileID: 1036896146}
   m_RootOrder: 0
@@ -1195,6 +1210,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 862d756f3c67d421c9ce251cd604fbf3, type: 2}
+    - target: {fileID: 3743597651704331072, guid: ce71ddc64223549ed8fc19f77f5948b2,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3743597651704331073, guid: ce71ddc64223549ed8fc19f77f5948b2,
         type: 3}
       propertyPath: m_RootOrder
@@ -1255,6 +1275,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Forest Portal (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3743597651704331074, guid: ce71ddc64223549ed8fc19f77f5948b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3743597651704331078, guid: ce71ddc64223549ed8fc19f77f5948b2,
         type: 3}
       propertyPath: linkedPortal
@@ -1313,7 +1338,7 @@ PrefabInstance:
     - target: {fileID: 2385110394510769964, guid: e7d0533e9ca9f64419eb5f2b3d9d8ca3,
         type: 3}
       propertyPath: m_Constraints
-      value: 112
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3771581771094438032, guid: e7d0533e9ca9f64419eb5f2b3d9d8ca3,
         type: 3}
@@ -1478,6 +1503,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Forest Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743597651704331074, guid: ce71ddc64223549ed8fc19f77f5948b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3743597651704331078, guid: ce71ddc64223549ed8fc19f77f5948b2,
         type: 3}

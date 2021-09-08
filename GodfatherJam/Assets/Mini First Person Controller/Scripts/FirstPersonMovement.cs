@@ -58,7 +58,7 @@ public class FirstPersonMovement : PortalTraveller
         Vector2 targetVelocity = new Vector2(Input.GetAxis("Horizontal") * targetMovingSpeed, Input.GetAxis("Vertical") * targetMovingSpeed);
 
         //// Apply movement.
-        rigidbody.velocity = /*(transform.rotation * */new Vector3(targetVelocity.x, rigidbody.velocity.y, targetVelocity.y);
+        rigidbody.velocity = (transform.rotation * new Vector3(targetVelocity.x, rigidbody.velocity.y, targetVelocity.y));
 
         rigidbody.velocity += portalVelocity;
 
@@ -122,15 +122,15 @@ public class FirstPersonMovement : PortalTraveller
         portalVelocity = toPortal.TransformVector(fromPortal.InverseTransformVector(GetComponent<Rigidbody>().velocity));
         portalAngularVelocity = toPortal.TransformVector(fromPortal.InverseTransformVector(GetComponent<Rigidbody>().angularVelocity));
 
-        //Vector3 eulerRot = rot.eulerAngles;
-        //float delta = Mathf.DeltaAngle(smoothYaw, eulerRot.y);
-        //yaw += delta;
-        //smoothYaw += delta;
-        //var angles = Vector3.zero;
-        //angles.x = portal.transform.eulerAngles.x;
-        //Debug.Log("X : " + angles.x);
-        //myAngle = angles.x;
-        //transform.eulerAngles = Vector3.up * smoothYaw;
-        //Physics.SyncTransforms();
+        Vector3 eulerRot = rot.eulerAngles;
+        float delta = Mathf.DeltaAngle(smoothYaw, eulerRot.y);
+        yaw += delta;
+        smoothYaw += delta;
+        var angles = Vector3.zero;
+        angles.x = portal.transform.eulerAngles.x;
+        Debug.Log("X : " + angles.x);
+        myAngle = angles.x;
+        transform.eulerAngles = Vector3.up * smoothYaw;
+        Physics.SyncTransforms();
     }
 }
