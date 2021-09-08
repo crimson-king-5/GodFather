@@ -1369,7 +1369,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: -57.996002, y: 0, z: 0}
---- !u!43 &530210478
+--- !u!43 &658797189
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2052,6 +2052,61 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &974915694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 974915696}
+  - component: {fileID: 974915695}
+  m_Layer: 0
+  m_Name: PortalEventTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &974915695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974915694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f3b552643cb724da7484a4f1026791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enablePortal: 0
+  triggerA: {fileID: 0}
+  enabledPortals: []
+  timerA: 0
+  enableTimer: 0
+  disablePortal: 1
+  triggerB: {fileID: 1788152446}
+  disabledPortals:
+  - {fileID: 180662347}
+  - {fileID: 1561445721}
+  timerB: 1
+  disableTimer: 1
+--- !u!4 &974915696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974915694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.1421657, y: 3.833024, z: 9.256163}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1010250886 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8697536890475865984, guid: 5460658af929cc646b3272c77c146819,
@@ -2540,6 +2595,12 @@ PrefabInstance:
       objectReference: {fileID: 393954934}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5460658af929cc646b3272c77c146819, type: 3}
+--- !u!65 &1788152446 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3743597651704331079, guid: 5460658af929cc646b3272c77c146819,
+    type: 3}
+  m_PrefabInstance: {fileID: 1753642785}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1852364638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2899,7 +2960,7 @@ MonoBehaviour:
   tagInput: 116
   tagableLayer:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 311
   arrowDecal: {fileID: 1694133149071950072, guid: 6ef8738861ca44f46aa8b2f3b6e00fdc,
     type: 3}
   mouseSensitivity: 10
@@ -3017,7 +3078,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 530210478}
+      objectReference: {fileID: 658797189}
     - target: {fileID: 1694133149071950072, guid: 6ef8738861ca44f46aa8b2f3b6e00fdc,
         type: 3}
       propertyPath: m_Name

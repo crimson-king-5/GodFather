@@ -179,6 +179,7 @@ public class FirstPersonMovement : PortalTraveller
         cam.transform.localEulerAngles = Vector3.right * smoothPitch;
     }
 
+
     public override void Teleport(Transform fromPortal, Transform toPortal, Vector3 pos, Quaternion rot, Portal portal)
     {
         //Debug.Log("in portal true");
@@ -201,5 +202,9 @@ public class FirstPersonMovement : PortalTraveller
         transform.eulerAngles = Vector3.up * smoothYaw;
         Physics.SyncTransforms();
         //graphicsObject.transform.eulerAngles = angles;
+
+        Debug.Log("Portal : " + portal.name);
+
+        PortalEventSystem.instance.PortalEvent(portal.linkedPortal);
     }
 }
