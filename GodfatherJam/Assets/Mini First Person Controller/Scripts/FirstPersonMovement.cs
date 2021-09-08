@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class FirstPersonMovement : PortalTraveller
 {
+    public float actualSpeed = 0;
     public float speed = 5;
+    public float accelerationTime;
 
     [Header("Running")]
     public bool canRun = true;
@@ -19,7 +22,7 @@ public class FirstPersonMovement : PortalTraveller
     public float yaw;
     public float pitch;
     float smoothYaw;
-    float smoothPitch;
+    public float smoothPitch;
     public Camera cam;
 
     private Vector3 portalVelocity;
@@ -49,13 +52,26 @@ public class FirstPersonMovement : PortalTraveller
 
         // Get targetMovingSpeed.
         float targetMovingSpeed = IsRunning ? runSpeed : speed;
+
+        //Debug.Log("target move speed : " + targetMovingSpeed);
+
         if (speedOverrides.Count > 0)
         {
             targetMovingSpeed = speedOverrides[speedOverrides.Count - 1]();
         }
 
+        DOTween.To(() => actualSpeed, x => actualSpeed = x, targetMovingSpeed, accelerationTime);
+
+        //if (actualSpeed >= targetMovingSpeed)
+        //    actualSpeed = accelerationForce * actualSpeed * Time.deltaTime;
+        //else
+        //    actualSpeed = targetMovingSpeed;
+
         // Get targetVelocity from input.
-        Vector2 targetVelocity = new Vector2(Input.GetAxis("Horizontal") * targetMovingSpeed, Input.GetAxis("Vertical") * targetMovingSpeed);
+        Vector2 targetVelocity = new Vector2(Input.GetAxis("Horizontal") * actualSpeed, Input.GetAxis("Vertical") * actualSpeed);
+
+        if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
+                actualSpeed = 0;
 
         //// Apply movement.
         rigidbody.velocity = (transform.rotation * new Vector3(targetVelocity.x, rigidbody.velocity.y, targetVelocity.y));
@@ -108,12 +124,21 @@ public class FirstPersonMovement : PortalTraveller
         smoothYaw = Mathf.SmoothDampAngle(smoothYaw, yaw, ref yawSmoothV, rotationSmoothTime);
 
         transform.eulerAngles = Vector3.up * smoothYaw;
+
+        //if(myAngle != 0)
+        //{
+        //    smoothPitch = 480;
+        //    Debug.Log("smooth : " + smoothPitch);
+        //    myAngle = 0;
+        //    Debug.Break();
+        //}
+
         cam.transform.localEulerAngles = Vector3.right * smoothPitch;
     }
 
     public override void Teleport(Transform fromPortal, Transform toPortal, Vector3 pos, Quaternion rot, Portal portal)
     {
-        Debug.Log("in portal true");
+        //Debug.Log("in portal true");
         inPortal = true;
         base.Teleport(fromPortal, toPortal, pos, rot, portal);
         GetComponent<Rigidbody>().velocity = toPortal.TransformVector(fromPortal.InverseTransformVector(GetComponent<Rigidbody>().velocity));
@@ -128,9 +153,10 @@ public class FirstPersonMovement : PortalTraveller
         smoothYaw += delta;
         var angles = Vector3.zero;
         angles.x = portal.transform.eulerAngles.x;
-        Debug.Log("X : " + angles.x);
+        //Debug.Log("X : " + angles.x);
         myAngle = angles.x;
         transform.eulerAngles = Vector3.up * smoothYaw;
         Physics.SyncTransforms();
+        //graphicsObject.transform.eulerAngles = angles;
     }
 }
