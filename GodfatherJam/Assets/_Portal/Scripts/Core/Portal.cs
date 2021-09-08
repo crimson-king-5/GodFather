@@ -314,9 +314,9 @@ public class Portal : MonoBehaviour {
         }
     }
 
-    void OnValidate () {
+    /*void OnValidate () {
         if (linkedPortal != null) {
             linkedPortal.linkedPortal = this;
         }
-    }
+    }*/
 }

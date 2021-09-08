@@ -5969,7 +5969,7 @@ GameObject:
   - component: {fileID: 307575393}
   - component: {fileID: 307575392}
   - component: {fileID: 307575391}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7936,6 +7936,14 @@ MonoBehaviour:
   cam: {fileID: 1150898532}
   maxPortalVelocity: {x: 0, y: 0, z: 0}
   inPortal: 0
+  maxDistSpray: 0
+  sprayScale: {x: 1, y: 1, z: 1}
+  maxTag: 0
+  tagInput: 0
+  tagableLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  arrowDecal: {fileID: 0}
   mouseSensitivity: 10
   pitchMinMax: {x: -90, y: 90}
   rotationSmoothTime: 0.1
@@ -11177,6 +11185,18 @@ Transform:
   m_Father: {fileID: 147358238}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &637889592 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8697536890475865984, guid: 5460658af929cc646b3272c77c146819,
+    type: 3}
+  m_PrefabInstance: {fileID: 1910750724}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5089e045068a7ba4c9443816029aa899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &638471456
 Mesh:
   m_ObjectHideFlags: 0
@@ -18492,6 +18512,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3771581771094438035, guid: e7d0533e9ca9f64419eb5f2b3d9d8ca3,
         type: 3}
+      propertyPath: maxTag
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3771581771094438035, guid: e7d0533e9ca9f64419eb5f2b3d9d8ca3,
+        type: 3}
+      propertyPath: tagInput
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 3771581771094438035, guid: e7d0533e9ca9f64419eb5f2b3d9d8ca3,
+        type: 3}
+      propertyPath: arrowDecal
+      value: 
+      objectReference: {fileID: 1694133149071950072, guid: 6ef8738861ca44f46aa8b2f3b6e00fdc,
+        type: 3}
+    - target: {fileID: 3771581771094438035, guid: e7d0533e9ca9f64419eb5f2b3d9d8ca3,
+        type: 3}
+      propertyPath: maxDistSpray
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3771581771094438035, guid: e7d0533e9ca9f64419eb5f2b3d9d8ca3,
+        type: 3}
       propertyPath: maxPortalVelocity.x
       value: 50
       objectReference: {fileID: 0}
@@ -18504,6 +18545,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxPortalVelocity.z
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3771581771094438035, guid: e7d0533e9ca9f64419eb5f2b3d9d8ca3,
+        type: 3}
+      propertyPath: tagableLayer.m_Bits
+      value: 311
       objectReference: {fileID: 0}
     - target: {fileID: 5438251231321996402, guid: e7d0533e9ca9f64419eb5f2b3d9d8ca3,
         type: 3}
@@ -24191,7 +24237,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh54234
+  m_Name: pb_Mesh85170
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -25906,7 +25952,7 @@ PrefabInstance:
         type: 3}
       propertyPath: linkedPortal
       value: 
-      objectReference: {fileID: 293649398}
+      objectReference: {fileID: 637889592}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5460658af929cc646b3272c77c146819, type: 3}
 --- !u!4 &2045426302 stripped
