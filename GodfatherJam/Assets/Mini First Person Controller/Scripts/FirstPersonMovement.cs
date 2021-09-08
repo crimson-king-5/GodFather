@@ -27,6 +27,7 @@ public class FirstPersonMovement : PortalTraveller
     public Vector3 maxPortalVelocity;
 
     public bool inPortal;
+    private float myAngle;
 
     void Awake()
     {
@@ -56,27 +57,26 @@ public class FirstPersonMovement : PortalTraveller
         // Get targetVelocity from input.
         Vector2 targetVelocity = new Vector2(Input.GetAxis("Horizontal") * targetMovingSpeed, Input.GetAxis("Vertical") * targetMovingSpeed);
 
-        // Apply movement.
-        rigidbody.velocity = (transform.rotation * new Vector3(targetVelocity.x, rigidbody.velocity.y, targetVelocity.y));
+        //// Apply movement.
+        rigidbody.velocity = /*(transform.rotation * */new Vector3(targetVelocity.x, rigidbody.velocity.y, targetVelocity.y);
+
+        rigidbody.velocity += portalVelocity;
 
         //if (portalVelocity == Vector3.zero)
         //{
-            
-        //    //Debug.Log("protal velo : " + portalVelocity);
-
-        //    //if (portalVelocity.y > maxPortalVelocity.y)
-        //    //    rigidbody.velocity += maxPortalVelocity;
-        //    //else
-        //    //    rigidbody.velocity += portalVelocity;
+        //    if (portalVelocity.y > maxPortalVelocity.y)
+        //        rigidbody.velocity += maxPortalVelocity;
+        //    else
+        //        rigidbody.velocity += portalVelocity;
         //}
 
-        ////rigidbody.angularVelocity += portalAngularVelocity;
+        rigidbody.angularVelocity += portalAngularVelocity;
 
-        //if (portalVelocity != Vector3.zero)
-        //{
-        //    portalAngularVelocity = Vector3.zero;
-        //    portalVelocity = Vector3.zero;
-        //}
+        if (portalVelocity != Vector3.zero)
+        {
+            portalAngularVelocity = Vector3.zero;
+            portalVelocity = Vector3.zero;
+        }
 
         _Rot();
     }
@@ -102,6 +102,8 @@ public class FirstPersonMovement : PortalTraveller
         yaw += mX * mouseSensitivity;
         pitch -= mY * mouseSensitivity;
         pitch = Mathf.Clamp(pitch, pitchMinMax.x, pitchMinMax.y);
+        //pitch += myAngle;
+        //myAngle = 0;
         smoothPitch = Mathf.SmoothDampAngle(smoothPitch, pitch, ref pitchSmoothV, rotationSmoothTime);
         smoothYaw = Mathf.SmoothDampAngle(smoothYaw, yaw, ref yawSmoothV, rotationSmoothTime);
 
@@ -120,18 +122,15 @@ public class FirstPersonMovement : PortalTraveller
         portalVelocity = toPortal.TransformVector(fromPortal.InverseTransformVector(GetComponent<Rigidbody>().velocity));
         portalAngularVelocity = toPortal.TransformVector(fromPortal.InverseTransformVector(GetComponent<Rigidbody>().angularVelocity));
 
-        Vector3 eulerRot = rot.eulerAngles;
-        float delta = Mathf.DeltaAngle(smoothYaw, eulerRot.y);
-        yaw += delta;
-        //RAJOUTER AU DELTA LA ROT DU PORTAIL EN Y
-        smoothYaw += delta;
-        //smoothYaw += portal.linkedPortal.transform.eulerAngles.y;
-        Debug.Log("portal : " + portal.transform.eulerAngles.x + " name :" + portal.linkedPortal.name);
-        var angles = Vector3.zero;
-        angles.x = portal.transform.eulerAngles.x;
-        Debug.Log("X : " + angles.x);
-        playerCam.transform.eulerAngles = angles;
-        transform.eulerAngles = Vector3.up * smoothYaw;
-        Physics.SyncTransforms();
+        //Vector3 eulerRot = rot.eulerAngles;
+        //float delta = Mathf.DeltaAngle(smoothYaw, eulerRot.y);
+        //yaw += delta;
+        //smoothYaw += delta;
+        //var angles = Vector3.zero;
+        //angles.x = portal.transform.eulerAngles.x;
+        //Debug.Log("X : " + angles.x);
+        //myAngle = angles.x;
+        //transform.eulerAngles = Vector3.up * smoothYaw;
+        //Physics.SyncTransforms();
     }
 }
