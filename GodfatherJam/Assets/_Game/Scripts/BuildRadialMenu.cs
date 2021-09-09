@@ -18,6 +18,7 @@ public class BuildRadialMenu : MonoBehaviour
         public Color hoverColor = Color.white;
         public int sprayPrefabIndex;
         //public Color iconCOlor = Color.white;
+        public bool useWhiteColor;
 
     }
 
