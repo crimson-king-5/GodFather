@@ -48,6 +48,11 @@ public class EventController : MonoBehaviour
     public string deathTextEventDisplay = "You <b>died</b>. You <b>respawned</b> on spawn point.";
     public float deathTextEventDisplayTime = 4;
 
+    [Header("Win Text Event Values")]
+    public Collider winCollider;
+    public string winTextEventDisplay = "GG ! You win a beer ! -> 22-24 Allée de l'Arche, 92400 Courbevoie";
+    public float winTextEventDisplayTIme = 10;
+
 
     private void Awake()
     {
