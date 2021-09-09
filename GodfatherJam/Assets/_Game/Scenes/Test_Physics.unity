@@ -1357,7 +1357,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: -57.996002, y: 0, z: 0}
---- !u!43 &696589020
+--- !u!43 &531822082
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1368,14 +1368,14 @@ Mesh:
   m_SubMeshes:
   - serializedVersion: 2
     firstByte: 0
-    indexCount: 24
+    indexCount: 12
     topology: 0
     baseVertex: 0
     firstVertex: 0
-    vertexCount: 14
+    vertexCount: 6
     localAABB:
-      m_Center: {x: -0.0011599064, y: -0.0022146106, z: -0.209825}
-      m_Extent: {x: 0.50116, y: 0.5022146, z: 0.29017502}
+      m_Center: {x: 0.000000059604645, y: 0, z: 0.08035001}
+      m_Extent: {x: 0.50000006, y: 0.5, z: 0.0000000037252903}
   m_Shapes:
     vertices: []
     shapes: []
@@ -1392,10 +1392,10 @@ Mesh:
   m_KeepVertices: 1
   m_KeepIndices: 1
   m_IndexFormat: 0
-  m_IndexBuffer: 0000010002000000020003000000030004000200010005000600070008000600080009000a000b000c000a000c000d00
+  m_IndexBuffer: 000001000200000002000300000003000400020001000500
   m_VertexData:
     serializedVersion: 3
-    m_VertexCount: 14
+    m_VertexCount: 6
     m_Channels:
     - stream: 0
       offset: 0
@@ -1453,8 +1453,8 @@ Mesh:
       offset: 0
       format: 0
       dimension: 0
-    m_DataSize: 448
-    _typelessdata: 0100003f0000003f8c8ea43d7f0cafb1803a0c2f000080bf42f63a3f42f6603f0200003fccfde6be8c8ea43d0000000000000000000080bf42f63a3f6290163ed0fde63e000000bf8c8ea43d536e33b1803a0c2f000080bfd13f353ff02be03d000000bf000000bf8d8ea43d5f4903b2c057522f000080bf4e038c3ef02be03d000000bf0000003f8d8ea43d000000b200000000000080bf4e038c3e42f6603ffeffff3e000000bf8c8ea43d0000000000000000000080bf42f63a3ff02be03dedcffebee30d9ebe000000bf308fed3eaec6623ff1b80bb64e038c3edba5813eedcffebedc0d9ebea82cd3be308fed3eaec6623f7ca70db64e038c3ee0a5813eb34810be74bbfdbea82cd3be308fed3eaec6623ff1b80bb69777df3ef02be03dce4810be74bbfdbe000000bf2f8fed3eaec6623f66ca09b69177df3ef02be03d07d081be462201bfa82cd3be308fedbeaec662bff89b78358834c63ef02be03d0a9800bf448dbfbea82cd3be2f8fedbeaec662bff9d572354e038c3e1cbc563e0a9800bf478dbfbe000000bf308fedbeaec662bff89b78354e038c3e17bc563e0dd081be462201bf000000bf308fedbeaec662bff8617e358534c63ef02be03d
+    m_DataSize: 192
+    _typelessdata: 0100003f0000003f8c8ea43d7f0cafb1803a0c2f000080bf42f63a3f42f6603f0200003fccfde6be8c8ea43d0000000000000000000080bf42f63a3f6290163ed0fde63e000000bf8c8ea43d536e33b1803a0c2f000080bfd13f353ff02be03d000000bf000000bf8d8ea43d5f4903b2c057522f000080bf4e038c3ef02be03d000000bf0000003f8d8ea43d000000b200000000000080bf4e038c3e42f6603ffeffff3e000000bf8c8ea43d0000000000000000000080bf42f63a3ff02be03d
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -1508,8 +1508,8 @@ Mesh:
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
-    m_Center: {x: -0.0011599064, y: -0.0022146106, z: -0.209825}
-    m_Extent: {x: 0.50116, y: 0.5022146, z: 0.29017502}
+    m_Center: {x: 0.000000059604645, y: 0, z: 0.08035001}
+    m_Extent: {x: 0.50000006, y: 0.5, z: 0.0000000037252903}
   m_MeshUsageFlags: 0
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
@@ -1532,7 +1532,7 @@ GameObject:
   - component: {fileID: 698360934}
   - component: {fileID: 698360933}
   - component: {fileID: 698360932}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2951,7 +2951,7 @@ MonoBehaviour:
   tagInput: 116
   tagableLayer:
     serializedVersion: 2
-    m_Bits: 311
+    m_Bits: 256
   arrowDecal: {fileID: 1694133149071950072, guid: 6ef8738861ca44f46aa8b2f3b6e00fdc,
     type: 3}
   mouseSensitivity: 10
@@ -3069,7 +3069,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 696589020}
+      objectReference: {fileID: 531822082}
     - target: {fileID: 1694133149071950072, guid: 6ef8738861ca44f46aa8b2f3b6e00fdc,
         type: 3}
       propertyPath: m_Name

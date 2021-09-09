@@ -63,7 +63,7 @@ public class FirstPersonMovement : PortalTraveller
         if (Physics.Raycast(cam.transform.position, cam.transform.forward * 10, out sprayHit, maxDistSpray, tagableLayer))
         {
             var go = Instantiate(arrowDecal, sprayHit.point, Quaternion.identity);
-            go.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+            go.transform.eulerAngles = cam.transform.eulerAngles;
             StartCoroutine(WaitingToBuildDecal(go));
         }
     }
