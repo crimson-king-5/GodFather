@@ -2,17 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimplePortalTraveller : MonoBehaviour
+public class SimplePortalTraveller : PortalTraveller
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Teleport(Transform fromPortal, Transform toPortal, Vector3 pos, Quaternion rot, Portal portal)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.Teleport(fromPortal, toPortal, pos, rot, portal);
     }
 }
