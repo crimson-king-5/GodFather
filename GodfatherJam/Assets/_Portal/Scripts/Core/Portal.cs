@@ -49,14 +49,14 @@ public class Portal : MonoBehaviour {
                 var positionOld = travellerT.position;
                 var rotOld = travellerT.rotation;
                 traveller.Teleport (transform, linkedPortal.transform, m.GetColumn (3), m.rotation, linkedPortal);
-                traveller.graphicsClone.transform.SetPositionAndRotation (positionOld, rotOld);
+                //traveller.graphicsClone.transform.SetPositionAndRotation (positionOld, rotOld);
                 // Can't rely on OnTriggerEnter/Exit to be called next frame since it depends on when FixedUpdate runs
                 linkedPortal.OnTravellerEnterPortal (traveller);
                 trackedTravellers.RemoveAt (i);
                 i--;
 
             } else {
-                traveller.graphicsClone.transform.SetPositionAndRotation (m.GetColumn (3), m.rotation);
+                //traveller.graphicsClone.transform.SetPositionAndRotation (m.GetColumn (3), m.rotation);
                 //UpdateSliceParams (traveller);
                 traveller.previousOffsetFromPortal = offsetFromPortal;
             }
@@ -155,7 +155,7 @@ public class Portal : MonoBehaviour {
         var offsetFromPortalToCam = portalCamPos - transform.position;
         foreach (var linkedTraveller in linkedPortal.trackedTravellers) {
             var travellerPos = linkedTraveller.graphicsObject.transform.position;
-            var clonePos = linkedTraveller.graphicsClone.transform.position;
+            //var clonePos = linkedTraveller.graphicsClone.transform.position;
             // Handle clone of linked portal coming through this portal:
             bool cloneOnSameSideAsCam = linkedPortal.SideOfPortal (travellerPos) != SideOfPortal (portalCamPos);
             if (cloneOnSameSideAsCam) {
@@ -234,17 +234,17 @@ public class Portal : MonoBehaviour {
             cloneSliceOffsetDst = -screenThickness;
         }
 
-        // Apply parameters
-        for (int i = 0; i < traveller.originalMaterials.Length; i++) {
-            traveller.originalMaterials[i].SetVector ("sliceCentre", slicePos);
-            traveller.originalMaterials[i].SetVector ("sliceNormal", sliceNormal);
-            traveller.originalMaterials[i].SetFloat ("sliceOffsetDst", sliceOffsetDst);
+        //// Apply parameters
+        //for (int i = 0; i < traveller.originalMaterials.Length; i++) {
+        //    traveller.originalMaterials[i].SetVector ("sliceCentre", slicePos);
+        //    traveller.originalMaterials[i].SetVector ("sliceNormal", sliceNormal);
+        //    traveller.originalMaterials[i].SetFloat ("sliceOffsetDst", sliceOffsetDst);
 
-            traveller.cloneMaterials[i].SetVector ("sliceCentre", cloneSlicePos);
-            traveller.cloneMaterials[i].SetVector ("sliceNormal", cloneSliceNormal);
-            traveller.cloneMaterials[i].SetFloat ("sliceOffsetDst", cloneSliceOffsetDst);
+        //    //traveller.cloneMaterials[i].SetVector ("sliceCentre", cloneSlicePos);
+        //    //traveller.cloneMaterials[i].SetVector ("sliceNormal", cloneSliceNormal);
+        //    //traveller.cloneMaterials[i].SetFloat ("sliceOffsetDst", cloneSliceOffsetDst);
 
-        }
+        //}
 
     }
 

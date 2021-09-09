@@ -43,42 +43,42 @@ public class PortalTraveller : MonoBehaviour {
 
     // Called when first touches portal
     public virtual void EnterPortalThreshold () {
-        if (graphicsClone == null)
-        {
-            graphicsClone = Instantiate(graphicsObject);
-            graphicsClone.transform.parent = graphicsObject.transform.parent;
-            graphicsClone.transform.localScale = graphicsObject.transform.localScale;
-            originalMaterials = GetMaterials(graphicsObject);
-            cloneMaterials = GetMaterials(graphicsClone);
-        }
-        else
-        {
-            graphicsClone.SetActive(true);
-        }
+        //if (graphicsClone == null)
+        //{
+        //    graphicsClone = Instantiate(graphicsObject);
+        //    graphicsClone.transform.parent = graphicsObject.transform.parent;
+        //    graphicsClone.transform.localScale = graphicsObject.transform.localScale;
+        //    originalMaterials = GetMaterials(graphicsObject);
+        //    cloneMaterials = GetMaterials(graphicsClone);
+        //}
+        //else
+        //{
+        //    graphicsClone.SetActive(true);
+        //}
     }
 
     // Called once no longer touching portal (excluding when teleporting)
     public virtual void ExitPortalThreshold () {
-        graphicsClone.SetActive (false);
+        //graphicsClone.SetActive (false);
         // Disable slicing
-        for (int i = 0; i < originalMaterials.Length; i++) {
-            originalMaterials[i].SetVector ("sliceNormal", Vector3.zero);
-        }
+        //for (int i = 0; i < originalMaterials.Length; i++) {
+        //    originalMaterials[i].SetVector ("sliceNormal", Vector3.zero);
+        //}
     }
 
     public void SetSliceOffsetDst (float dst, bool clone) {
-        for (int i = 0; i < originalMaterials.Length; i++)
-        {
-            if (clone)
-            {
-                cloneMaterials[i].SetFloat("sliceOffsetDst", dst);
-            }
-            else
-            {
-                originalMaterials[i].SetFloat("sliceOffsetDst", dst);
-            }
+        //for (int i = 0; i < originalMaterials.Length; i++)
+        //{
+        //    if (clone)
+        //    {
+        //        cloneMaterials[i].SetFloat("sliceOffsetDst", dst);
+        //    }
+        //    else
+        //    {
+        //        originalMaterials[i].SetFloat("sliceOffsetDst", dst);
+        //    }
 
-        }
+        //}
     }
 
     Material[] GetMaterials (GameObject g) {
