@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using DG.Tweening;
+using Sirenix.OdinInspector;
 
 
 public class EventController : MonoBehaviour
@@ -24,9 +27,20 @@ public class EventController : MonoBehaviour
     private GameObject Player;
     public float stagePercent;
 
+    [Header("Text Event")]
+    public TMPro.TextMeshProUGUI eventText;
+    public Color startColor = Color.white;
+    public Color endColor;
+    public float textFadeDuration = 7;
+    private Vector3 originalPos;
+    public float upOffsetAnimation = 350;
+
+    //private Sequence sequenceText;
+    //private Sequence sequenceTransform;
 
     private void Awake()
     {
+        originalPos = eventText.transform.position;
         instance = this;
         for(int i = 0; i < DeathZone.Count; i++)
         {
@@ -58,6 +72,20 @@ public class EventController : MonoBehaviour
                 stagePercent = Mathf.Round((id * SpawnPoints.Count) / 100);
             }
         
+    }
+
+    [Button]
+    public void NewTextEvent(string newEventText)
+    {
+        eventText.color = startColor;
+
+        eventText.gameObject.transform.position = originalPos;
+
+        eventText.text = newEventText;
+        eventText.DOColor(endColor, textFadeDuration);
+        eventText.gameObject.transform.DOLocalMoveY(upOffsetAnimation, textFadeDuration);
+
+        //DOTween.To(() => balance, x => balance = x, to, 2).OnUpdate(UpdateUI).OnComplete(UpdateUI);
     }
 
 }
