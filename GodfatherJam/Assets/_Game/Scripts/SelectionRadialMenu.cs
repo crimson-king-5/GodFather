@@ -113,6 +113,7 @@ public class SelectionRadialMenu : MonoBehaviour
         fpm.canRot = true;
         timePressed = 0;
 
+
         if (selection >= 2 && selection <= 7)
         {
             Debug.Log("Color");
@@ -124,5 +125,8 @@ public class SelectionRadialMenu : MonoBehaviour
             fpm.arrowDecal = fpm.sprayPrefab[_brm.items[selection].sprayPrefabIndex];
             //fpm.actualTexture = _brm.items[selection].sprayTexture;
         }
+
+        if (_brm.items[selection].useWhiteColor)
+            fpm.actualSprayColor = Color.white;
     }
 }
