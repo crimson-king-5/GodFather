@@ -17,6 +17,12 @@ public class EventController : MonoBehaviour
         public Collider spawn;
         public Vector3 position;
     }
+    public string spawnPointTextEventDisplay = "Spawn Point <b>Update</b>";
+    public float spawnPointTextEventDisplayTime = 5;
+
+    public string deathTextEventDisplay = "You <b>died</b>. You <b>respawned</b> on spawn point.";
+    public float deathTextEventDisplayTime = 4;
+
     public static EventController instance;
 
     public List<Collider> DeathZone;
@@ -31,7 +37,7 @@ public class EventController : MonoBehaviour
     public TMPro.TextMeshProUGUI eventText;
     public Color startColor = Color.white;
     public Color endColor;
-    public float textFadeDuration = 7;
+    //public float textFadeDuration = 7;
     private Vector3 originalPos;
     public float upOffsetAnimation = 350;
 
@@ -60,30 +66,32 @@ public class EventController : MonoBehaviour
     
     public void DeathEvent()
     {        
-            Player.transform.position = SavedSP.position;
+        Player.transform.position = SavedSP.position;
+        NewTextEvent(deathTextEventDisplay, deathTextEventDisplayTime);
 
     }
     public void SpawnUpdateEvent(int id,Vector3 pos)
     {
         if (id > SavedSP.id)
-            {
-                SavedSP.position = pos;
-                SavedSP.id = id;
-                stagePercent = Mathf.Round((id * SpawnPoints.Count) / 100);
-            }
+        {
+            SavedSP.position = pos;
+            SavedSP.id = id;
+            stagePercent = Mathf.Round((id * SpawnPoints.Count) / 100);
+            NewTextEvent(spawnPointTextEventDisplay, spawnPointTextEventDisplayTime);
+        }
         
     }
 
     [Button]
-    public void NewTextEvent(string newEventText)
+    public void NewTextEvent(string newEventText, float time)
     {
         eventText.color = startColor;
 
         eventText.gameObject.transform.position = originalPos;
 
         eventText.text = newEventText;
-        eventText.DOColor(endColor, textFadeDuration);
-        eventText.gameObject.transform.DOLocalMoveY(upOffsetAnimation, textFadeDuration);
+        eventText.DOColor(endColor, time);
+        eventText.gameObject.transform.DOLocalMoveY(upOffsetAnimation, time);
 
         //DOTween.To(() => balance, x => balance = x, to, 2).OnUpdate(UpdateUI).OnComplete(UpdateUI);
     }
