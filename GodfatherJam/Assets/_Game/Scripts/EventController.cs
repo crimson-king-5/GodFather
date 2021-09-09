@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,6 +22,7 @@ public class EventController : MonoBehaviour
 
     public SpawnPoint SavedSP;
     private GameObject Player;
+    public float stagePercent;
 
 
     private void Awake()
@@ -53,7 +55,9 @@ public class EventController : MonoBehaviour
             {
                 SavedSP.position = pos;
                 SavedSP.id = id;
+                stagePercent = Mathf.Round((id * SpawnPoints.Count) / 100);
             }
         
     }
+
 }
