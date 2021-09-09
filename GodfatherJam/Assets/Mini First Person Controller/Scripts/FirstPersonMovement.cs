@@ -44,6 +44,9 @@ public class FirstPersonMovement : PortalTraveller
 
     Vector3 RaycastOrigin => transform.position - Vector3.forward * maxDistSpray;
 
+    public List<GameObject> sprays = new List<GameObject>();
+    public float maxSprays;
+
     private void Update()
     {
         if (Input.GetKeyUp(tagInput))
@@ -63,6 +66,15 @@ public class FirstPersonMovement : PortalTraveller
         if (Physics.Raycast(cam.transform.position, cam.transform.forward * 10, out sprayHit, maxDistSpray, tagableLayer))
         {
             var go = Instantiate(arrowDecal, sprayHit.point, Quaternion.identity);
+            sprays.Add(go);
+
+            if (sprays.Count > maxSprays)
+            {
+                sprays[0].SetActive(false);
+                sprays.RemoveAt(0);
+            }
+
+
             go.transform.eulerAngles = cam.transform.eulerAngles;
             StartCoroutine(WaitingToBuildDecal(go));
         }
