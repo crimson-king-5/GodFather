@@ -17,66 +17,71 @@ public class EventController : MonoBehaviour
         public Collider spawn;
         public Vector3 position;
     }
-    public string spawnPointTextEventDisplay = "Spawn Point <b>Update</b>";
-    public float spawnPointTextEventDisplayTime = 5;
-
-    public string deathTextEventDisplay = "You <b>died</b>. You <b>respawned</b> on spawn point.";
-    public float deathTextEventDisplayTime = 4;
 
     public static EventController instance;
 
-    public List<Collider> DeathZone;
+    [Header("Death Events")]
+    public List<Collider> deathZone;
 
-    public List<SpawnPoint> SpawnPoints;
+    [Header("Spawn Events")]
+    public List<SpawnPoint> spawnPoints;
 
-    public SpawnPoint SavedSP;
-    private GameObject Player;
+    [HideInInspector]
+    public SpawnPoint savedSpawnPoint;
+    private GameObject player;
+
+    [Header("Percent")]
     public float stagePercent;
 
     [Header("Text Event")]
     public TMPro.TextMeshProUGUI eventText;
     public Color startColor = Color.white;
     public Color endColor;
-    //public float textFadeDuration = 7;
     private Vector3 originalPos;
     public float upOffsetAnimation = 350;
 
-    //private Sequence sequenceText;
-    //private Sequence sequenceTransform;
+    [Header("Spawn Text Event Values")]
+    public string spawnPointTextEventDisplay = "Spawn Point <b>Update</b>";
+    public float spawnPointTextEventDisplayTime = 5;
+
+    [Header("Death Text Event Values")]
+    public string deathTextEventDisplay = "You <b>died</b>. You <b>respawned</b> on spawn point.";
+    public float deathTextEventDisplayTime = 4;
+
 
     private void Awake()
     {
         originalPos = eventText.transform.position;
         instance = this;
-        for(int i = 0; i < DeathZone.Count; i++)
+        for(int i = 0; i < deathZone.Count; i++)
         {
-           DeathZone[i].gameObject.AddComponent<EventTrigger>().eventType = EventTrigger.EventType.DEATH;
+           deathZone[i].gameObject.AddComponent<EventTrigger>().eventType = EventTrigger.EventType.DEATH;
         }
-        for (int i = 0; i < SpawnPoints.Count; i++)
+        for (int i = 0; i < spawnPoints.Count; i++)
         {
-            EventTrigger et = SpawnPoints[i].spawn.gameObject.AddComponent<EventTrigger>();
+            EventTrigger et = spawnPoints[i].spawn.gameObject.AddComponent<EventTrigger>();
             et.eventType = EventTrigger.EventType.SPAWN;
-            et.id = SpawnPoints[i].id;
+            et.id = spawnPoints[i].id;
         }
 
 
-        Player = GameObject.Find("Player");
-        SavedSP.position = Player.transform.position;
+        player = FindObjectOfType<FirstPersonMovement>().gameObject;
+        savedSpawnPoint.position = player.transform.position;
     }
     
     public void DeathEvent()
     {        
-        Player.transform.position = SavedSP.position;
+        player.transform.position = savedSpawnPoint.position;
         NewTextEvent(deathTextEventDisplay, deathTextEventDisplayTime);
 
     }
     public void SpawnUpdateEvent(int id,Vector3 pos)
     {
-        if (id > SavedSP.id)
+        if (id > savedSpawnPoint.id)
         {
-            SavedSP.position = pos;
-            SavedSP.id = id;
-            stagePercent = Mathf.Round((id * SpawnPoints.Count) / 100);
+            savedSpawnPoint.position = pos;
+            savedSpawnPoint.id = id;
+            stagePercent = Mathf.Round((id * spawnPoints.Count) / 100);
             NewTextEvent(spawnPointTextEventDisplay, spawnPointTextEventDisplayTime);
         }
         
