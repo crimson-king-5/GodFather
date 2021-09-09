@@ -45,7 +45,13 @@ public class FirstPersonMovement : PortalTraveller
     Vector3 RaycastOrigin => transform.position - Vector3.forward * maxDistSpray;
 
     public List<GameObject> sprays = new List<GameObject>();
+    private List<MaterialPropertyBlock> _mpb = new List<MaterialPropertyBlock>();
     public float maxSprays;
+    public Color actualSprayColor;
+    //public Texture actualTexture;
+    public List<GameObject> sprayPrefab = new List<GameObject>();
+
+    public bool canRot;
 
     private void Update()
     {
@@ -65,8 +71,16 @@ public class FirstPersonMovement : PortalTraveller
     {
         if (Physics.Raycast(cam.transform.position, cam.transform.forward * 10, out sprayHit, maxDistSpray, tagableLayer))
         {
+
             var go = Instantiate(arrowDecal, sprayHit.point, Quaternion.identity);
             sprays.Add(go);
+            var a = new MaterialPropertyBlock();
+            a.SetColor("_Color", actualSprayColor);
+            go.GetComponent<Renderer>().SetPropertyBlock(a);
+
+            //mat.SetColor("_Color", actualSprayColor);
+            //mat.SetTexture("_MainTex", actualTexture);
+
 
             if (sprays.Count > maxSprays)
             {
@@ -89,6 +103,7 @@ public class FirstPersonMovement : PortalTraveller
 
     void Awake()
     {
+        canRot = true;
         Cursor.lockState = CursorLockMode.Locked;
 
         //// Get the rigidbody on this.
@@ -149,7 +164,8 @@ public class FirstPersonMovement : PortalTraveller
             portalVelocity = Vector3.zero;
         }
 
-        _Rot();
+        if(canRot)
+            _Rot();
     }
 
     public float mouseSensitivity = 10;
