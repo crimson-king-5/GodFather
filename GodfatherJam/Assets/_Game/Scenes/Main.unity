@@ -2071,6 +2071,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5089e045068a7ba4c9443816029aa899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &141907842 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3743597651704331079, guid: 5460658af929cc646b3272c77c146819,
+    type: 3}
+  m_PrefabInstance: {fileID: 141907839}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &145379150 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0e242937eff6f6d4ebc783c290651b8d,
@@ -2733,6 +2739,12 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 2385110394510769966, guid: e7d0533e9ca9f64419eb5f2b3d9d8ca3,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 7c614674b803e4244ac8b52e07ea0b95,
+        type: 2}
     - target: {fileID: 3771581771094438032, guid: e7d0533e9ca9f64419eb5f2b3d9d8ca3,
         type: 3}
       propertyPath: m_RootOrder
@@ -6935,99 +6947,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 370049105943201527}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &435320084
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 435320085}
-  - component: {fileID: 435320087}
-  - component: {fileID: 435320086}
-  m_Layer: 0
-  m_Name: QUIT THE GAME 0 (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &435320085
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 435320084}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 1.42, z: 12.77}
-  m_LocalScale: {x: 0.001435976, y: 0.0014359758, z: 0.001435976}
-  m_Children: []
-  m_Father: {fileID: 141907840}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!102 &435320086
-TextMesh:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 435320084}
-  m_Text: ARE YOU SURE SURE?
-  m_OffsetZ: 0
-  m_CharacterSize: 10
-  m_LineSpacing: 1
-  m_Anchor: 4
-  m_Alignment: 1
-  m_TabSize: 1
-  m_FontSize: 100
-  m_FontStyle: 0
-  m_RichText: 1
-  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-  m_Color:
-    serializedVersion: 2
-    rgba: 4294967295
---- !u!23 &435320087
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 435320084}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!4 &439035967 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8234224329614460475, guid: c7da4db25d321124b81a67fc35bf9ed4,
@@ -13155,7 +13074,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828078870}
-  m_Text: ARE YOU SURE
+  m_Text: ARE YOU SURE ?
   m_OffsetZ: 0
   m_CharacterSize: 10
   m_LineSpacing: 1
@@ -17483,6 +17402,7 @@ MonoBehaviour:
   - {fileID: 1253596658}
   - {fileID: 8649517034311069349}
   - {fileID: 1059874970}
+  - {fileID: 141907842}
   spawnPoints:
   - id: 0
     spawn: {fileID: 1431582224}
@@ -22981,7 +22901,7 @@ PrefabInstance:
     - target: {fileID: 3743597651704331073, guid: 5460658af929cc646b3272c77c146819,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19970.6
+      value: 19970.453
       objectReference: {fileID: 0}
     - target: {fileID: 3743597651704331073, guid: 5460658af929cc646b3272c77c146819,
         type: 3}
@@ -22991,7 +22911,7 @@ PrefabInstance:
     - target: {fileID: 3743597651704331073, guid: 5460658af929cc646b3272c77c146819,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19792.6
+      value: 19790.535
       objectReference: {fileID: 0}
     - target: {fileID: 3743597651704331073, guid: 5460658af929cc646b3272c77c146819,
         type: 3}
@@ -23006,7 +22926,7 @@ PrefabInstance:
     - target: {fileID: 3743597651704331073, guid: 5460658af929cc646b3272c77c146819,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3743597651704331073, guid: 5460658af929cc646b3272c77c146819,
         type: 3}
@@ -23021,7 +22941,7 @@ PrefabInstance:
     - target: {fileID: 3743597651704331073, guid: 5460658af929cc646b3272c77c146819,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 3743597651704331073, guid: 5460658af929cc646b3272c77c146819,
         type: 3}
@@ -23189,7 +23109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1602008585}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 1.42, z: 12.77}
+  m_LocalPosition: {x: 0, y: 2.478, z: 11.575}
   m_LocalScale: {x: 0.001435976, y: 0.0014359758, z: 0.001435976}
   m_Children: []
   m_Father: {fileID: 1892430841}
@@ -23203,7 +23123,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1602008585}
-  m_Text: ARE YOU SURE SURE?
+  m_Text: ARE YOU SURE SURE SURE?
   m_OffsetZ: 0
   m_CharacterSize: 10
   m_LineSpacing: 1
