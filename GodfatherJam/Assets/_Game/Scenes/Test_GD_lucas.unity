@@ -191,6 +191,9 @@ MonoBehaviour:
   arrowDecal: {fileID: 0}
   sprays: []
   maxSprays: 0
+  actualSprayColor: {r: 0, g: 0, b: 0, a: 0}
+  sprayPrefab: []
+  canRot: 0
   mouseSensitivity: 10
   pitchMinMax: {x: -90, y: 90}
   rotationSmoothTime: 0.1
