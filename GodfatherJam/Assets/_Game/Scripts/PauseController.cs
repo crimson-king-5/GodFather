@@ -42,7 +42,7 @@ public class PauseController : MonoBehaviour
 
     private void Update()
     {
-        if(isPaused)
+        if (isPaused)
             SelectionRadialMenu.instance.radialMenuHolder.gameObject.SetActive(false);
 
         if (Input.GetKeyDown(pauseInput) && !SelectionRadialMenu.instance.menuEnable)
@@ -64,6 +64,14 @@ public class PauseController : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
             }
 
+        }
+
+        if (!isPaused)
+        {
+            if (SelectionRadialMenu.instance.menuEnable)
+                Cursor.lockState = CursorLockMode.None;
+            else
+                Cursor.lockState = CursorLockMode.Locked;
         }
     }
 }
