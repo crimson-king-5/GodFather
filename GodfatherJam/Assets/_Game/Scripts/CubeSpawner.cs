@@ -9,9 +9,12 @@ public class CubeSpawner : MonoBehaviour
     public Transform spawnPoint;
     private GameObject spawnedCube;
 
+    public string eventTextDisplay = "You <b>spawned</b> a cube somewhere.";
+    public float eventTextDisplayTime = 6;
+
     public void Start()
     {
-        SpawnCube();
+        //SpawnCube();
     }
 
     public void SpawnCube()
@@ -25,7 +28,7 @@ public class CubeSpawner : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-            SpawnCube();
+        SpawnCube();
+        EventController.instance.NewTextEvent(eventTextDisplay, eventTextDisplayTime);
     }
 }

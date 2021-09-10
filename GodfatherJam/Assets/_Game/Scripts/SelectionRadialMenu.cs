@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 [RequireComponent(typeof(BuildRadialMenu))]
 public class SelectionRadialMenu : MonoBehaviour
@@ -19,15 +20,21 @@ public class SelectionRadialMenu : MonoBehaviour
     public float timePressed;
     public float timeLengthInputMenu;
 
-    private bool menuEnable;
+    [HideInInspector]
+    public bool menuEnable;
     private bool timer;
 
     public Transform radialMenuHolder;
 
     public FirstPersonMovement fpm;
 
+    public static SelectionRadialMenu instance;
+
+    public TextMeshProUGUI radialMenuTextDescription;
+
     void Start()
     {
+        instance = this;
         _brm = GetComponent<BuildRadialMenu>();
         menuEnable = false;
         radialMenuHolder.gameObject.SetActive(false);
@@ -55,6 +62,16 @@ public class SelectionRadialMenu : MonoBehaviour
             timePressed = 0;
 
         if (!menuEnable) return;
+
+        if (Input.GetKeyDown(PauseController.instance.pauseInput))
+        {
+            menuEnable = false;
+            fpm.canRot = true;
+            radialMenuHolder.gameObject.SetActive(false);
+            timePressed = 0;
+            Debug.Log("Pause while player is in tag menu");
+            PauseController.instance.Pause();
+        }
 
         Debug.Log("Menu enable");
 
@@ -90,6 +107,15 @@ public class SelectionRadialMenu : MonoBehaviour
     {
         DeselectPart();
 
+        if (selection >= 2 && selection <= 7)
+        {
+            radialMenuTextDescription.text = "<b>CHANGE COLOR</b>";
+        }
+        else
+        {
+            radialMenuTextDescription.text = "<b>CHANGE TAG</b>";
+        }
+
         previousSelection = selection;
 
         if (_brm.menuParts[selection] != null)
@@ -113,6 +139,7 @@ public class SelectionRadialMenu : MonoBehaviour
         fpm.canRot = true;
         timePressed = 0;
 
+
         if (selection >= 2 && selection <= 7)
         {
             Debug.Log("Color");
@@ -124,5 +151,8 @@ public class SelectionRadialMenu : MonoBehaviour
             fpm.arrowDecal = fpm.sprayPrefab[_brm.items[selection].sprayPrefabIndex];
             //fpm.actualTexture = _brm.items[selection].sprayTexture;
         }
+
+        if (_brm.items[selection].useWhiteColor)
+            fpm.actualSprayColor = Color.white;
     }
 }

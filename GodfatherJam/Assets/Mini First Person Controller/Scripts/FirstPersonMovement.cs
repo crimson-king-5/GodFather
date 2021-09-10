@@ -71,7 +71,6 @@ public class FirstPersonMovement : PortalTraveller
     {
         if (Physics.Raycast(cam.transform.position, cam.transform.forward * 10, out sprayHit, maxDistSpray, tagableLayer))
         {
-
             var go = Instantiate(arrowDecal, sprayHit.point, Quaternion.identity);
             sprays.Add(go);
             var a = new MaterialPropertyBlock();
