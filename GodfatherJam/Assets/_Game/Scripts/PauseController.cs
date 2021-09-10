@@ -24,6 +24,7 @@ public class PauseController : MonoBehaviour
         menu.gameObject.SetActive(true);
         isPaused = true;
         Cursor.lockState = CursorLockMode.None;
+        SelectionRadialMenu.instance.radialMenuHolder.gameObject.SetActive(false);
     }
 
     public void Quit()
