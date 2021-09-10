@@ -69,6 +69,8 @@ public class FirstPersonMovement : PortalTraveller
 
     void _Spray()
     {
+        Debug.Log("Spray");
+
         if (Physics.Raycast(cam.transform.position, cam.transform.forward * 10, out sprayHit, maxDistSpray, tagableLayer))
         {
             var go = Instantiate(arrowDecal, sprayHit.point, Quaternion.identity);
