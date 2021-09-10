@@ -11,8 +11,11 @@ public class PauseController : MonoBehaviour
 
     public static PauseController instance;
 
+    private FirstPersonMovement _fpm;
+
     private void Awake()
     {
+        _fpm = FindObjectOfType<FirstPersonMovement>();
         instance = this;
         isPaused = false;
         menu.gameObject.SetActive(false);
@@ -71,7 +74,11 @@ public class PauseController : MonoBehaviour
             if (SelectionRadialMenu.instance.menuEnable)
                 Cursor.lockState = CursorLockMode.None;
             else
+            {
+                _fpm.canRot = true;
                 Cursor.lockState = CursorLockMode.Locked;
+            }
+
         }
     }
 }
