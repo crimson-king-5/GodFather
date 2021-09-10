@@ -1969,7 +1969,7 @@ PrefabInstance:
     - target: {fileID: 3743597651704331073, guid: 5460658af929cc646b3272c77c146819,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20052.6
+      value: 19995.38
       objectReference: {fileID: 0}
     - target: {fileID: 3743597651704331073, guid: 5460658af929cc646b3272c77c146819,
         type: 3}
@@ -2414,7 +2414,7 @@ PrefabInstance:
     - target: {fileID: 3743597651704331073, guid: 5460658af929cc646b3272c77c146819,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20055.1
+      value: 19989.47
       objectReference: {fileID: 0}
     - target: {fileID: 3743597651704331073, guid: 5460658af929cc646b3272c77c146819,
         type: 3}
@@ -6995,7 +6995,7 @@ PrefabInstance:
     - target: {fileID: 3743597651704331073, guid: 5460658af929cc646b3272c77c146819,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20055.5
+      value: 19989.4
       objectReference: {fileID: 0}
     - target: {fileID: 3743597651704331073, guid: 5460658af929cc646b3272c77c146819,
         type: 3}
@@ -10521,12 +10521,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 627411880}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &628833622 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 3743597651704331079, guid: 5460658af929cc646b3272c77c146819,
-    type: 3}
-  m_PrefabInstance: {fileID: 1892430840}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &644827135 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3743597651360454370, guid: 5460658af929cc646b3272c77c146819,
@@ -11693,7 +11687,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725933771}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.27, y: 1.91, z: 13.33}
+  m_LocalPosition: {x: 0.27, y: 1.91, z: 2.496}
   m_LocalScale: {x: 0.001435976, y: 0.001435976, z: 0.001435976}
   m_Children: []
   m_Father: {fileID: 1972844952}
@@ -13060,7 +13054,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828078870}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 74.04, y: -15.87, z: 14.099609}
+  m_LocalPosition: {x: 8.93, y: -15.87, z: 14.099609}
   m_LocalScale: {x: 0.009999999, y: 0.01, z: 0.009999999}
   m_Children: []
   m_Father: {fileID: 134832241}
@@ -17402,7 +17396,6 @@ MonoBehaviour:
   - {fileID: 1253596658}
   - {fileID: 8649517034311069349}
   - {fileID: 1059874970}
-  - {fileID: 141907842}
   spawnPoints:
   - id: 0
     spawn: {fileID: 1431582224}
@@ -17445,7 +17438,7 @@ MonoBehaviour:
   winTextEventDisplay: "GG ! You win a beer (SCREEN)! -> 22-24 All\xE9e de l'Arche,
     92400 Courbevoie"
   winTextEventDisplayTIme: 60
-  quitCollider: {fileID: 628833622}
+  quitCollider: {fileID: 141907842}
   quitTextEventDisplay: NOOB
   quitTextEventDisplayTime: 1
 --- !u!4 &1175022726
@@ -23109,7 +23102,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1602008585}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.478, z: 11.575}
+  m_LocalPosition: {x: 0, y: 2.478, z: 3.24}
   m_LocalScale: {x: 0.001435976, y: 0.0014359758, z: 0.001435976}
   m_Children: []
   m_Father: {fileID: 1892430841}
