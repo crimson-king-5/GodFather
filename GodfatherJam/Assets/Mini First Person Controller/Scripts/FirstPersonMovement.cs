@@ -42,6 +42,8 @@ public class FirstPersonMovement : PortalTraveller
     public LayerMask tagableLayer;
     public GameObject arrowDecal;
 
+    private RaycastHit raycastHit;
+
     Vector3 RaycastOrigin => transform.position - Vector3.forward * maxDistSpray;
 
     public List<GameObject> sprays = new List<GameObject>();
@@ -139,7 +141,13 @@ public class FirstPersonMovement : PortalTraveller
         //    actualSpeed = targetMovingSpeed;
 
         // Get targetVelocity from input.
-        Vector2 targetVelocity = new Vector2(Input.GetAxis("Horizontal") * actualSpeed, Input.GetAxis("Vertical") * actualSpeed);
+        Vector2 targetVelocity = Vector2.zero;
+        if (Physics.Raycast(transform.position, cam.transform.forward, out raycastHit))
+        {
+            if(raycastHit.distance > .1f)
+                targetVelocity = new Vector2(Input.GetAxis("Horizontal") * actualSpeed, Input.GetAxis("Vertical") * actualSpeed);
+        }
+
 
         if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
                 actualSpeed = 0;
