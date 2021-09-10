@@ -33,10 +33,12 @@ public class BuildRadialMenu : MonoBehaviour
     {
         menuParts.Clear();
 
+#if UNITY_EDITOR
         for (int i = 0; i < items.Count; i++)
         {
             PrefabUtility.InstantiatePrefab(partMenu, transform); 
         }
+#endif
 
         var divide = 360 / items.Count;
 
