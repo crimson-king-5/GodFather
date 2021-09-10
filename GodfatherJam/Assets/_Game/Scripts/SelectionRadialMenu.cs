@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 [RequireComponent(typeof(BuildRadialMenu))]
 public class SelectionRadialMenu : MonoBehaviour
@@ -28,6 +29,8 @@ public class SelectionRadialMenu : MonoBehaviour
     public FirstPersonMovement fpm;
 
     public static SelectionRadialMenu instance;
+
+    public TextMeshProUGUI radialMenuTextDescription;
 
     void Start()
     {
@@ -103,6 +106,15 @@ public class SelectionRadialMenu : MonoBehaviour
     void SelectPart()
     {
         DeselectPart();
+
+        if (selection >= 2 && selection <= 7)
+        {
+            radialMenuTextDescription.text = "<b>CHANGE COLOR</b>";
+        }
+        else
+        {
+            radialMenuTextDescription.text = "<b>CHANGE TAG</b>";
+        }
 
         previousSelection = selection;
 
