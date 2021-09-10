@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseController : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class PauseController : MonoBehaviour
     public static PauseController instance;
 
     private FirstPersonMovement _fpm;
+
+    public Slider
 
     private void Awake()
     {
