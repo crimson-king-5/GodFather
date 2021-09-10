@@ -1,9 +1,10 @@
-﻿#if UNITY_EDITOR
-namespace DecalSystem {
+﻿namespace DecalSystem {
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
+#if UNITY_EDITOR
     using UnityEditor;
+#endif
     using UnityEngine;
 
     static class DecalBuilder {
@@ -86,4 +87,3 @@ namespace DecalSystem {
 
     }
 }
-#endif

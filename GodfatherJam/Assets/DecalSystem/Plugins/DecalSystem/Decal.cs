@@ -1,9 +1,10 @@
-#if UNITY_EDITOR
 namespace DecalSystem {
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
+#if UNITY_EDITOR
     using UnityEditor;
+#endif
     using UnityEngine;
     using UnityEngine.Serialization;
 
@@ -32,8 +33,9 @@ namespace DecalSystem {
             }
         }
 
-
+#if UNITY_EDITOR
         [MenuItem( "GameObject/Decal" )]
+#endif
         internal static void Create() {
             new GameObject( "Decal", typeof( Decal ), typeof( MeshFilter ), typeof( MeshRenderer ) ).isStatic = true;
         }
@@ -97,4 +99,3 @@ namespace DecalSystem {
 
     }
 }
-#endif
