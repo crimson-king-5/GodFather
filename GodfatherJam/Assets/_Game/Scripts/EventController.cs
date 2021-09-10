@@ -121,7 +121,7 @@ public class EventController : MonoBehaviour
         //DOTween.To(() => balance, x => balance = x, to, 2).OnUpdate(UpdateUI).OnComplete(UpdateUI);
     }
 
-    public void QuiEvent(float duration)
+    public void QuitEvent(float duration)
     {
         StartCoroutine(QuitEventTImer(duration));
     }
