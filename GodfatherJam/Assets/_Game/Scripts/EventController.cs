@@ -56,7 +56,7 @@ public class EventController : MonoBehaviour
 
     private void Awake()
     {
-        winCollider.gameObject.AddComponent<EventTrigger>();
+        winCollider.gameObject.AddComponent<EventTrigger>().eventType = EventTrigger.EventType.WIN;
 
         originalPos = eventText.transform.position;
         instance = this;
