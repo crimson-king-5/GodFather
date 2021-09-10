@@ -19,12 +19,12 @@ public class PauseController : MonoBehaviour
     }
     public void Pause()
     {
-        Debug.Log("Paused");
+        Debug.Log("Paused + NO MORE RADIAL MENU");
+        SelectionRadialMenu.instance.radialMenuHolder.gameObject.SetActive(false);
         Time.timeScale = 0;
         menu.gameObject.SetActive(true);
         isPaused = true;
         Cursor.lockState = CursorLockMode.None;
-        SelectionRadialMenu.instance.radialMenuHolder.gameObject.SetActive(false);
     }
 
     public void Quit()
@@ -42,11 +42,14 @@ public class PauseController : MonoBehaviour
 
     private void Update()
     {
+        if(isPaused)
+            SelectionRadialMenu.instance.radialMenuHolder.gameObject.SetActive(false);
+
         if (Input.GetKeyDown(pauseInput) && !SelectionRadialMenu.instance.menuEnable)
         {
             if (!isPaused)
             {
-                Debug.Log("Paused");
+                //Debug.Log("Paused");
                 Time.timeScale = 0;
                 menu.gameObject.SetActive(true);
                 isPaused = true;
@@ -54,7 +57,7 @@ public class PauseController : MonoBehaviour
             }
             else
             {
-                Debug.Log("Unpaused");
+                //Debug.Log("Unpaused");
                 Time.timeScale = 1;
                 menu.gameObject.SetActive(false);
                 isPaused = false;
