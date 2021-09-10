@@ -124,6 +124,7 @@ public class EventController : MonoBehaviour
     public void QuitEvent(float duration)
     {
         StartCoroutine(QuitEventTImer(duration));
+        Debug.Log("Quit");
     }
 
     IEnumerator QuitEventTImer(float duration)
