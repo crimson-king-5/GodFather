@@ -5,12 +5,15 @@ using UnityEngine;
 public class PauseController : MonoBehaviour
 {
     public KeyCode pauseInput;
-    private bool isPaused;
+    public bool isPaused;
 
     public Transform menu;
 
+    public static PauseController instance;
+
     private void Awake()
     {
+        instance = this;
         isPaused = false;
         menu.gameObject.SetActive(false);
     }

@@ -56,6 +56,15 @@ public class SelectionRadialMenu : MonoBehaviour
 
         if (!menuEnable) return;
 
+        if (Input.GetKeyDown(PauseController.instance.pauseInput))
+        {
+            menuEnable = false;
+            fpm.canRot = true;
+            radialMenuHolder.gameObject.SetActive(false);
+            timePressed = 0;
+            PauseController.instance.Pause();
+        }
+
         Debug.Log("Menu enable");
 
         Cursor.lockState = CursorLockMode.None;
