@@ -62,6 +62,7 @@ public class SelectionRadialMenu : MonoBehaviour
             fpm.canRot = true;
             radialMenuHolder.gameObject.SetActive(false);
             timePressed = 0;
+            Debug.Log("Pause while player is in tag menu");
             PauseController.instance.Pause();
         }
 
