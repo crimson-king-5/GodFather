@@ -82,6 +82,13 @@ public class EventController : MonoBehaviour
         NewTextEvent(deathTextEventDisplay, deathTextEventDisplayTime);
 
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+            DeathEvent();
+    }
+
     public void SpawnUpdateEvent(int id,Vector3 pos)
     {
         if (id > savedSpawnPoint.id)

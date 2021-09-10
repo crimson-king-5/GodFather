@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -12813,25 +12813,25 @@ MonoBehaviour:
   - id: 0
     spawn: {fileID: 1431582224}
     position: {x: 0, y: 0, z: 0}
-  - id: 0
+  - id: 1
     spawn: {fileID: 2074036070}
     position: {x: 0, y: 0, z: 0}
-  - id: 0
+  - id: 2
     spawn: {fileID: 686626758}
     position: {x: 0, y: 0, z: 0}
-  - id: 0
+  - id: 3
     spawn: {fileID: 195889850}
     position: {x: 0, y: 0, z: 0}
-  - id: 0
+  - id: 4
     spawn: {fileID: 731499327}
     position: {x: 0, y: 0, z: 0}
-  - id: 0
+  - id: 5
     spawn: {fileID: 1347203612}
     position: {x: 0, y: 0, z: 0}
-  - id: 0
+  - id: 6
     spawn: {fileID: 868764892}
     position: {x: 0, y: 0, z: 0}
-  - id: 0
+  - id: 7
     spawn: {fileID: 731768482}
     position: {x: 0, y: 0, z: 0}
   savedSpawnPoint:
