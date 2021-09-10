@@ -7,13 +7,35 @@ public class PauseController : MonoBehaviour
     public KeyCode pauseInput;
     private bool isPaused;
 
+    public Transform menu;
+
     private void Awake()
     {
         isPaused = false;
+        menu.gameObject.SetActive(false);
     }
     public void Pause()
     {
+        if (Input.GetKeyDown(pauseInput))
+        {
+            if (!isPaused)
+            {
+                Debug.Log("Paused");
+                Time.timeScale = 0;
+                menu.gameObject.SetActive(true);
+                isPaused = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                Debug.Log("Unpaused");
+                Time.timeScale = 1;
+                menu.gameObject.SetActive(false);
+                isPaused = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
 
+        }
     }
 
     public void Quit()
@@ -23,14 +45,14 @@ public class PauseController : MonoBehaviour
 
     public void Resume()
     {
-
+        menu.gameObject.SetActive(false);
+        isPaused = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(pauseInput))
-        {
-
-        }
+        Pause();
     }
 }
