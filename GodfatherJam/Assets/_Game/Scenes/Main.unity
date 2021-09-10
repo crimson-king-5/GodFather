@@ -3317,6 +3317,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8439988777999646055, guid: 2a2882c65c6e85141b56debc912aafe2,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439988777999646055, guid: 2a2882c65c6e85141b56debc912aafe2,
+        type: 3}
       propertyPath: m_BlockingMask.m_Bits
       value: 311
       objectReference: {fileID: 0}
@@ -15001,6 +15006,11 @@ PrefabInstance:
     - target: {fileID: 1377352468001680565, guid: ceb242b8af7c360428970211b1cdb91a,
         type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1377352469257819636, guid: ceb242b8af7c360428970211b1cdb91a,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1377352469257819638, guid: ceb242b8af7c360428970211b1cdb91a,
