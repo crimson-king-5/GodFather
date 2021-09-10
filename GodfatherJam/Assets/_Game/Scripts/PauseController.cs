@@ -19,7 +19,29 @@ public class PauseController : MonoBehaviour
     }
     public void Pause()
     {
-        if (Input.GetKeyDown(pauseInput))
+        Debug.Log("Paused");
+        Time.timeScale = 0;
+        menu.gameObject.SetActive(true);
+        isPaused = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public void Resume()
+    {
+        menu.gameObject.SetActive(false);
+        isPaused = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(pauseInput) && !SelectionRadialMenu.instance.menuEnable)
         {
             if (!isPaused)
             {
@@ -39,23 +61,5 @@ public class PauseController : MonoBehaviour
             }
 
         }
-    }
-
-    public void Quit()
-    {
-        Application.Quit();
-    }
-
-    public void Resume()
-    {
-        menu.gameObject.SetActive(false);
-        isPaused = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Time.timeScale = 1;
-    }
-
-    private void Update()
-    {
-        Pause();
     }
 }

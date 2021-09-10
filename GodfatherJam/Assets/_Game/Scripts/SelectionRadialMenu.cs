@@ -19,15 +19,19 @@ public class SelectionRadialMenu : MonoBehaviour
     public float timePressed;
     public float timeLengthInputMenu;
 
-    private bool menuEnable;
+    [HideInInspector]
+    public bool menuEnable;
     private bool timer;
 
     public Transform radialMenuHolder;
 
     public FirstPersonMovement fpm;
 
+    public static SelectionRadialMenu instance;
+
     void Start()
     {
+        instance = this;
         _brm = GetComponent<BuildRadialMenu>();
         menuEnable = false;
         radialMenuHolder.gameObject.SetActive(false);
