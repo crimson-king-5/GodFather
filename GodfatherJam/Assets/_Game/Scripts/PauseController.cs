@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PauseController : MonoBehaviour
 {
@@ -14,7 +15,13 @@ public class PauseController : MonoBehaviour
 
     private FirstPersonMovement _fpm;
 
-    public Slider
+    public Slider sensitivity;
+    public float sensitivityValue;
+    public TextMeshProUGUI sensitivityText;
+    public Slider smoothness;
+    public float smoothnessValue;
+    public TextMeshProUGUI smoothnessText;
+
 
     private void Awake()
     {
@@ -22,6 +29,8 @@ public class PauseController : MonoBehaviour
         instance = this;
         isPaused = false;
         menu.gameObject.SetActive(false);
+        sensitivityValue = _fpm.mouseSensitivity;
+        smoothnessValue = _fpm.rotationSmoothTime;
     }
     public void Pause()
     {
@@ -31,6 +40,20 @@ public class PauseController : MonoBehaviour
         menu.gameObject.SetActive(true);
         isPaused = true;
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void OnSensitivityChange(Slider value)
+    {
+        _fpm.mouseSensitivity = value.value;
+        sensitivityValue = value.value;
+        sensitivityText.text = value.value.ToString();
+    }
+
+    public void OnSmoothnessChange(Slider value)
+    {
+        _fpm.rotationSmoothTime = value.value;
+        smoothnessValue = value.value;
+        smoothnessText.text = value.value.ToString();
     }
 
     public void Quit()

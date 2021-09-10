@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -2358,6 +2358,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8848188305117645912}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &192029773 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4080133929224715212, guid: ceb242b8af7c360428970211b1cdb91a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1440429555}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &195285037 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8234224329614460475, guid: c7da4db25d321124b81a67fc35bf9ed4,
@@ -4752,6 +4764,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8848188305984413894}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &392975238 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3872372977878299798, guid: ceb242b8af7c360428970211b1cdb91a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1440429555}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &394114359 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3110179968711688087, guid: ecac626914e41134a99d8f726a003cb0,
@@ -15700,6 +15724,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1267619609210025206, guid: ceb242b8af7c360428970211b1cdb91a,
+        type: 3}
+      propertyPath: m_Name
+      value: Sensitivity Value Percent
+      objectReference: {fileID: 0}
     - target: {fileID: 1377352467798367768, guid: ceb242b8af7c360428970211b1cdb91a,
         type: 3}
       propertyPath: m_RootOrder
@@ -15760,6 +15789,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: _Canvas - Pause Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 1377352467798367771, guid: ceb242b8af7c360428970211b1cdb91a,
+        type: 3}
+      propertyPath: smoothnessText
+      value: 
+      objectReference: {fileID: 192029773}
+    - target: {fileID: 1377352467798367771, guid: ceb242b8af7c360428970211b1cdb91a,
+        type: 3}
+      propertyPath: sensitivityText
+      value: 
+      objectReference: {fileID: 392975238}
     - target: {fileID: 1377352468001680553, guid: ceb242b8af7c360428970211b1cdb91a,
         type: 3}
       propertyPath: m_SortingOrder
@@ -15780,6 +15819,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1210032846}
+    - target: {fileID: 2585858308116722757, guid: ceb242b8af7c360428970211b1cdb91a,
+        type: 3}
+      propertyPath: m_Name
+      value: Sensitivity Value Percent
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ceb242b8af7c360428970211b1cdb91a, type: 3}
 --- !u!4 &1443452425 stripped

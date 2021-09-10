@@ -97,5 +97,5 @@ MonoBehaviour:
   LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  MaxAngle: 50
+  MaxAngle: 25
   Offset: 0.005

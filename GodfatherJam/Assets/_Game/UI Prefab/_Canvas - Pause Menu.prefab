@@ -515,6 +515,12 @@ MonoBehaviour:
   pauseInput: 27
   isPaused: 0
   menu: {fileID: 1377352467678732618}
+  sensitivity: {fileID: 9083994110116334303}
+  sensitivityValue: 0
+  sensitivityText: {fileID: 6845478994931807809}
+  smoothness: {fileID: 3793758848990387132}
+  smoothnessValue: 0
+  smoothnessText: {fileID: 1683918804998956587}
 --- !u!1 &1377352467883157062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1902,7 +1908,18 @@ MonoBehaviour:
   m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1377352467798367771}
+        m_MethodName: OnSensitivityChange
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 9083994110116334303}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2585858308116722757
 GameObject:
   m_ObjectHideFlags: 0
@@ -2874,7 +2891,18 @@ MonoBehaviour:
   m_Value: 0.1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1377352467798367771}
+        m_MethodName: OnSmoothnessChange
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 3793758848990387132}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7908026310601061705
 GameObject:
   m_ObjectHideFlags: 0
