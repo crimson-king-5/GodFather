@@ -56,6 +56,8 @@ public class EventController : MonoBehaviour
 
     private void Awake()
     {
+        winCollider.gameObject.AddComponent<EventTrigger>();
+
         originalPos = eventText.transform.position;
         instance = this;
         for(int i = 0; i < deathZone.Count; i++)
