@@ -53,10 +53,16 @@ public class EventController : MonoBehaviour
     public string winTextEventDisplay = "GG ! You win a beer ! -> 22-24 Allée de l'Arche, 92400 Courbevoie";
     public float winTextEventDisplayTIme = 10;
 
+    [Header("Quit Event")]
+    public Collider quitCollider;
+    public string quitTextEventDisplay = "NOOB";
+    public float quitTextEventDisplayTime = 1;
+
 
     private void Awake()
     {
         winCollider.gameObject.AddComponent<EventTrigger>().eventType = EventTrigger.EventType.WIN;
+        quitCollider.gameObject.AddComponent<EventTrigger>().eventType = EventTrigger.EventType.QUIT;
 
         originalPos = eventText.transform.position;
         instance = this;
@@ -113,6 +119,18 @@ public class EventController : MonoBehaviour
         eventText.gameObject.transform.DOLocalMoveY(upOffsetAnimation, time);
 
         //DOTween.To(() => balance, x => balance = x, to, 2).OnUpdate(UpdateUI).OnComplete(UpdateUI);
+    }
+
+    public void QuitEvent(float duration)
+    {
+        StartCoroutine(QuitEventTImer(duration));
+    }
+
+    IEnumerator QuitEventTImer(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        Application.Quit();
     }
 
 }

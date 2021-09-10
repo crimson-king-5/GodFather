@@ -8,7 +8,8 @@ public class EventTrigger : MonoBehaviour
     {
         DEATH,
         SPAWN,
-        WIN
+        WIN,
+        QUIT
     }
 
     public EventType eventType;
@@ -36,6 +37,10 @@ public class EventTrigger : MonoBehaviour
             case EventType.WIN:
                 EventController.instance.NewTextEvent(EventController.instance.winTextEventDisplay, EventController.instance.winTextEventDisplayTIme);
                 break;
+                case EventType.QUIT:
+                    EventController.instance.NewTextEvent(EventController.instance.quitTextEventDisplay, EventController.instance.quitTextEventDisplayTime);
+                    EventController.instance.QuitEvent(EventController.instance.quitTextEventDisplayTime);
+                    break;
             }
         }
         
